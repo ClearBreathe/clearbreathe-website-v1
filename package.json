@@ -1,26 +1,26 @@
 {
-  "name": "clean-breathe-website-v1",
-  "description": "CleanBreathe website",
+  "name": "clearbreathe-website-v1",
   "version": "1.0.0",
-  "author": "Jason Yu <me@ycmjason.com>",
-  "private": true,
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "start": "node ./lib/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClearBreathe/clearbreathe-website-v1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClearBreathe/clearbreathe-website-v1/issues"
+  },
+  "homepage": "https://github.com/ClearBreathe/clearbreathe-website-v1#readme",
   "dependencies": {
-    "vue": "^2.3.3"
-  },
-  "devDependencies": {
-    "babel-core": "^6.0.0",
-    "babel-loader": "^6.0.0",
-    "babel-preset-env": "^1.5.1",
-    "cross-env": "^3.0.0",
-    "css-loader": "^0.25.0",
-    "file-loader": "^0.9.0",
-    "vue-loader": "^12.1.0",
-    "vue-template-compiler": "^2.3.3",
-    "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5"
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.11.0",
+    "morgan": "^1.8.2"
   }
 }
