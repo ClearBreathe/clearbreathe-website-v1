@@ -9,28 +9,41 @@ module.exports = {
     filename: 'build.js'
   },
   module: {
-    rules: [
+    loaders: [
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: {
-          loaders: {
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        loaders: [
+          {
+            loader: 'file-loader',
+            query: {
+              hash: 'sha512',
+              digest: 'hex',
+              name: '[hash].[ext]',
+            }
+          },
+          {
+            loader: 'image-webpack-loader',
+            query: {
+              progressive: true,
+              optimizationLevel: 7,
+              interlaced: false,
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              }
+            }
           }
-          // other vue-loader options go here
-        }
+        ]
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
       },
-      {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]?[hash]'
-        }
-      }
     ]
   },
   resolve: {
