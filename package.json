@@ -21,6 +21,7 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "mongoose": "^4.11.0",
+    "mongoose-plugin-drop-duplicates": "0.0.3",
     "morgan": "^1.8.2"
   }
 }
