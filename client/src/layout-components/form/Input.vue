@@ -5,6 +5,8 @@
     <!-- the input might be one of the following -->
     <input v-if="useInputTag"
       class="form-control"
+      @input="$emit('input', $event.target.value)"
+      :value="value"
       :id="id"
       :name="name"
       :type="type"
@@ -14,14 +16,17 @@
 
     <textarea v-if="type === 'textarea'"
       class="form-control"
+      @input="$emit('input', $event.target.value)"
       :id="id"
       :name="name"
       :placeholder="placeholder"
       :required="required">
-      <slot></slot> 
+      {{ value }}
     </textarea>
 
-    <button v-if="type === 'button'"
+    <button v-if="useButtonTag"
+      @click="$emit('click')"
+      :type="type"
       class="btn btn-primary"
       :id="id"
       :name="name">
@@ -32,9 +37,9 @@
 
 <script>
 const INPUT_TAG_TYPES = ['text', 'email', 'password'];
-const VALID_TYPES = INPUT_TAG_TYPES.concat([
+const BUTTON_TAG_TYPES = ['submit', 'button'];
+const VALID_TYPES = INPUT_TAG_TYPES.concat(BUTTON_TAG_TYPES).concat([
   'textarea',
-  'button',
 ]);
 export default {
   props: {
@@ -63,10 +68,14 @@ export default {
       default: 'text',
       validator: (t) => VALID_TYPES.includes(t),
     },
+    'value': { /* could be anything */ },
   },
   computed: {
     useInputTag: function(){
       return INPUT_TAG_TYPES.includes(this.type);
+    },
+    useButtonTag: function(){
+      return BUTTON_TAG_TYPES.includes(this.type);
     }
   },
 }

@@ -5,11 +5,11 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './public/dist'),
-    publicPath: '/dist',
+    publicPath: '/dist/',
     filename: 'build.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -17,24 +17,23 @@ module.exports = {
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         loaders: [
-          {
-            loader: 'file-loader',
-            query: {
-              hash: 'sha512',
-              digest: 'hex',
-              name: '[hash].[ext]',
-            }
-          },
+          'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
           {
             loader: 'image-webpack-loader',
             query: {
-              progressive: true,
-              optimizationLevel: 7,
-              interlaced: false,
+              mozjpeg: {
+                progressive: true,
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              optipng: {
+                optimizationLevel: 4,
+              },
               pngquant: {
-                quality: '65-90',
-                speed: 4
-              }
+                quality: '75-90',
+                speed: 3,
+              },
             }
           }
         ]

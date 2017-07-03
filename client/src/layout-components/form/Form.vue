@@ -1,5 +1,5 @@
 <template>
-  <form :class="{'form-inline': inline}">
+  <form @submit.prevent="(e) => $emit('submit', e)" :class="{'form-inline': inline}">
     <slot></slot>
   </form>
 </template>

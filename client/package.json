@@ -5,6 +5,7 @@
   "author": "Jason Yu <me@ycmjason.com>",
   "private": true,
   "scripts": {
+    "clean": "rm -rf node_modules",
     "start": "superstatic public --port $PORT",
     "dev": "NODE_ENV=development webpack-dev-server --hot",
     "build": "NODE_ENV=production webpack --progress --hide-modules"

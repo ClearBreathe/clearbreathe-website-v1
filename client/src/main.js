@@ -5,6 +5,7 @@ import { requireLayout, requireComponent } from './webpack/require';
 
 // register the layout components
 const layout_components = [
+  'Alert',
   'grid/Row',
   'grid/Col',
   'form/Form',

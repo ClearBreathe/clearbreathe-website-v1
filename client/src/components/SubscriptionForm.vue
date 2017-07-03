@@ -1,12 +1,40 @@
 <template>
-  <layout-form class="justify-content-center mb-4" inline>
-    <layout-input class="mr-2" type="email" placeholder="name@example.com" required></layout-input> 
-    <layout-input type="button">Subscribe</layout-input> 
-  </layout-form>
+  <div class="d-flex flex-column align-items-center mb-4">
+    <layout-form class="mb-4" @submit="subscribe" inline>
+      <layout-input v-model="email" class="mr-2" type="email" placeholder="name@example.com" required></layout-input> 
+      <layout-input type="submit">Subscribe</layout-input> 
+    </layout-form>
+    <layout-alert type="success" v-if="successful">You are added to the mailing list!</layout-alert>
+    <layout-alert type="danger" v-if="failed">Opps! Something went wrong... Please try again!</layout-alert>
+  </div>
 </template>
 
 <script>
-export default { }
+import subscriptionsService from '../services/subscriptions.service';
+export default { 
+  data: () => {
+    return {
+      successful: false,
+      failed: false,
+      email: '',
+    };
+  },
+  methods: {
+    subscribe(){
+      const succeed = () => {
+        this.successful = true;
+        this.failed = false;
+      }
+      const fail = () => {
+        this.successful = false;
+        this.failed = true;
+      }
+      subscriptionsService.subscribe(this.email)
+        .then(succeed)
+        .catch(fail);
+    }
+  }
+}
 </script>
 
 <style>
