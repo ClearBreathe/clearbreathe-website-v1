@@ -1,7 +1,8 @@
 <template>
-  <div class="d-flex flex-column align-items-center mb-4">
-    <layout-form class="mb-4" @submit="subscribe" inline>
-      <layout-input v-model="email" class="mr-2" type="email" placeholder="name@example.com" required></layout-input> 
+  <div class="d-flex flex-column align-items-center">
+    <h6>Get our latest news first!</h6>
+    <layout-form @submit="subscribe" inline>
+      <layout-input v-model="email" class="mr-1" type="email" placeholder="name@example.com" required></layout-input> 
       <layout-input type="submit">Subscribe</layout-input> 
     </layout-form>
     <layout-alert type="success" v-if="successful">You are added to the mailing list!</layout-alert>

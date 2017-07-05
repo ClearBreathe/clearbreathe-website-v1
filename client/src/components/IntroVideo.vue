@@ -10,7 +10,7 @@ export default { }
 
 <style>
 #video-placeholder{
-  line-height: 70vh;
+  line-height: 58vh;
   background: #eee;
 }
 </style>

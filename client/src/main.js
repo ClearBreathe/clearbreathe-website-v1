@@ -6,6 +6,7 @@ import { requireLayout, requireComponent } from './webpack/require';
 // register the layout components
 const layout_components = [
   'Alert',
+  'Icon',
   'grid/Row',
   'grid/Col',
   'form/Form',
@@ -19,6 +20,7 @@ layout_components.forEach(path => {
 // register the app components
 const clearbreathe_components = [
   'Header',
+  'Footer',
   'IntroVideo',
   'SubscriptionForm',
 ];
