@@ -1,5 +1,5 @@
 <template>
-  <div id="bg" class="pt-5 pb-5">
+  <div id="bg" class="pt-5 pb-5 container-fluid">
     <p id="para"><strong>AirBreathe</strong> mask improves the breathing experiences of people living in cities affected by air pollution around the world. Our novel technology enables unrestricted deep breathing of fresh air while ensuring comfort. Perfect for outdoor-active people.</p>
   </div>
 </template>
