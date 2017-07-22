@@ -36,7 +36,7 @@ module.exports = {
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         use: [
-          'url-loader?limit=10000',
+          'url-loader',
           {
             loader: 'img-loader',
             options: {
@@ -73,6 +73,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': path.resolve(__dirname, './src/'),
+      'images': path.resolve(__dirname, './images/'),
     }
   },
   devServer: {

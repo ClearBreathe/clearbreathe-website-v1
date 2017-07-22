@@ -1,6 +1,6 @@
 <template>
   <header class="text-center">
-    <img id="logo" src="../../images/Logo_Transparent_With_Text.png"></img>
+    <img id="logo" src="images/Logo_Transparent_With_Text.png"></img>
   </header>
 </template>
 

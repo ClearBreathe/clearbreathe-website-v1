@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column align-items-center">
+  <div class="d-flex flex-column align-items-center pt-5 pb-5">
     <h6>Get our latest news first!</h6>
     <layout-form @submit="subscribe" inline>
       <layout-input v-model="email" class="mr-1" type="email" placeholder="name@example.com" required></layout-input> 

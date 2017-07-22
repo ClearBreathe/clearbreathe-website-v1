@@ -1,5 +1,5 @@
 <template>
-  <footer class="pb-4 pt-4 mt-4">
+  <footer class="pb-4 pt-4">
     <div class="container">
       <p>
         <a :href="facebook_link" target="_blank">

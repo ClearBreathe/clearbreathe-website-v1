@@ -2,7 +2,7 @@
   <div>
     <clearbreathe-header></clearbreathe-header>
 
-    <clearbreathe-intro-video></clearbreathe-intro-video>
+    <clearbreathe-photo-slides></clearbreathe-photo-slides>
     <clearbreathe-intro-paragraph></clearbreathe-intro-paragraph>
     <clearbreathe-subscription-form></clearbreathe-subscription-form>
 
