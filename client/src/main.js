@@ -22,6 +22,7 @@ const clearbreathe_components = [
   'Header',
   'Footer',
   'IntroVideo',
+  'IntroParagraph',
   'SubscriptionForm',
 ];
 clearbreathe_components.forEach(path => {

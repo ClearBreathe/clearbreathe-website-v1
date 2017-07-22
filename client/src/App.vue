@@ -3,6 +3,7 @@
     <clearbreathe-header></clearbreathe-header>
     <div class="container">
       <clearbreathe-intro-video></clearbreathe-intro-video>
+      <clearbreathe-intro-paragraph></clearbreathe-intro-paragraph>
       <clearbreathe-subscription-form></clearbreathe-subscription-form>
     </div>
     <clearbreathe-footer></clearbreathe-footer>
