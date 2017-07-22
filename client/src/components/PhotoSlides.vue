@@ -26,12 +26,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #slide{
   max-width: 100%;
-  height: 30em;;
+  height: 50vh;;
   background-size: cover;
   background-position: 50%;
   transition: 0.5s ease;
+  line-height: 1;
 }
 </style>

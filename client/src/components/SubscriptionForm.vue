@@ -1,8 +1,8 @@
 <template>
-  <div class="d-flex flex-column align-items-center pt-5 pb-5">
-    <h6>Get our latest news first!</h6>
+  <div class="d-flex flex-column align-items-center pt-5 pb-5 container-fluid">
+    <h6>Sign up here to receive updates and be the first to hear our launch!</h6>
     <layout-form @submit="subscribe" inline>
-      <layout-input v-model="email" class="mr-1" type="email" placeholder="name@example.com" required></layout-input> 
+      <layout-input v-model="email" type="email" placeholder="name@example.com" required></layout-input> 
       <layout-input type="submit">Subscribe</layout-input> 
     </layout-form>
     <layout-alert type="success" class="mt-3" v-if="successful">You are added to the mailing list!</layout-alert>
@@ -38,5 +38,5 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 </style>

@@ -10,7 +10,7 @@
 export default { }
 </script>
 
-<style>
+<style scoped>
 #video-placeholder{
   line-height: 58vh;
   background: #eee;
