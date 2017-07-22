@@ -1,6 +1,8 @@
 <template>
-  <div id="video-placeholder" class="text-center align-middle mb-4">
-    <div>Video Placeholder</div>
+  <div class="container">
+    <div id="video-placeholder" class="text-center align-middle mb-4">
+      <div>Video Placeholder</div>
+    </div>
   </div>
 </template>
 

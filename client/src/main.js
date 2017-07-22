@@ -1,33 +1,18 @@
 import Vue from 'vue';
 import App from './App.vue';
 
-import { requireLayout, requireComponent } from './webpack/require';
-
-// register the layout components
-const layout_components = [
-  'Alert',
-  'Icon',
-  'grid/Row',
-  'grid/Col',
-  'form/Form',
-  'form/Input',
-];
-layout_components.forEach(path => {
-  const name = path.substring(path.lastIndexOf('/')+1);
-  Vue.component('layout' + name, requireLayout(path));
+// register all layout components
+const LAYOUT_COMPONENT_PREFIX = 'layout';
+const layout_component_paths = require.context('@/layout-components', true, /.*\.vue/).keys()
+layout_component_paths.map(p => p.match(/\.\/(.*?)\.vue/)[1]).forEach(name => {
+  Vue.component(LAYOUT_COMPONENT_PREFIX + name, require('@/layout-components/' + name + '.vue'));
 });
 
-// register the app components
-const clearbreathe_components = [
-  'Header',
-  'Footer',
-  'IntroVideo',
-  'IntroParagraph',
-  'SubscriptionForm',
-];
-clearbreathe_components.forEach(path => {
-  const name = path.substring(path.lastIndexOf('/')+1);
-  Vue.component('clearbreathe' + name, requireComponent(path));
+// register all the components
+const COMPONENT_PREFIX = 'clearbreathe';
+const component_paths = require.context('@/components', true, /.*\.vue/).keys()
+component_paths.map(p => p.match(/\.\/(.*?)\.vue/)[1]).forEach(name => {
+  Vue.component(COMPONENT_PREFIX + name, require('@/components/' + name + '.vue'));
 });
 
 // initiate the app
