@@ -2,7 +2,10 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: ['babel-polyfill', './src/main.js'],
+  entry: [
+    'babel-polyfill',
+    './src/main.js',
+  ],
   output: {
     path: path.resolve(__dirname, './public/dist'),
     publicPath: '/dist/',
@@ -15,39 +18,54 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
-            scss: 'vue-style-loader!css-loader!sass-loader', // <style lang="scss">
-            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax' // <style lang="sass">
+            scss: 'style-loader!css-loader!sass-loader'
           }
         }
       },
       {
-        test: /\.(gif|png|jpe?g|svg)$/i,
-        loaders: [
-          'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ],
+      },
+      {
+        test: /.(woff(2)?|eot|ttf)([a-z0-9=.]+)?$/,
+        loader: 'url-loader?limit=100000'
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [
+          'url-loader?limit=10000',
           {
-            loader: 'image-webpack-loader',
-            query: {
+            loader: 'img-loader',
+            options: {
+              gifsicle: {
+                interlaced: false
+              },
               mozjpeg: {
                 progressive: true,
+                arithmetic: false
               },
-              gifsicle: {
-                interlaced: false,
-              },
-              optipng: {
-                optimizationLevel: 4,
-              },
+              optipng: false, // disabled
               pngquant: {
-                quality: '75-90',
-                speed: 3,
+                floyd: 0.5,
+                speed: 2
               },
+              svgo: {
+                plugins: [
+                  { removeTitle: true },
+                  { convertPathData: false }
+                ]
+              }
             }
           }
-        ]
+        ],
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /(node_modules|.*?\.test\.js$)/
       },
     ]
   },
