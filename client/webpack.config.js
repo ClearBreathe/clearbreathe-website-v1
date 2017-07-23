@@ -19,14 +19,15 @@ module.exports = {
         options: {
           loaders: {
             scss: 'style-loader!css-loader!sass-loader'
-          }
+          },
+          postcss: [require('postcss-cssnext')()]
         }
       },
       {
         test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader'
+          'css-loader',
         ],
       },
       {
